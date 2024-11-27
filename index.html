@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion Calculator</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .conversion-section {
+            display: none;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+        }
+
+        .conversion-header {
+            font-size: 1.5em;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Conversion Calculator</h1>
+        <p>Select a conversion option:</p>
+        <select id="conversionType" onchange="showConversionMenu()">
+            <option value="0">Select Conversion</option>
+            <option value="1">Mass Conversion</option>
+            <option value="2">Temperature Conversion</option>
+            <option value="3">Length Conversion</option>
+            <option value="4">Time Conversion</option>
+            <option value="5">Speed Conversion</option>
+            <option value="6">Volume Conversion</option>
+            <option value="7">Currency Conversion</option>
+        </select>
+
+        <!-- Mass Conversion -->
+        <div id="massConversion" class="conversion-section">
+            <h3 class="conversion-header">Mass Conversion</h3>
+            <select id="massChoice">
+                <option value="0">Select Mass Conversion</option>
+                <option value="1">Kilograms to Pounds</option>
+                <option value="2">Grams to Ounces</option>
+                <option value="3">Milligrams to Grams</option>
+                <option value="4">Pounds to Kilograms</option>
+                <option value="5">Ounces to Grams</option>
+                <option value="6">Tons to Kilograms</option>
+            </select>
+            <input type="number" id="massValue" placeholder="Enter value" />
+            <button onclick="performMassConversion()">Convert</button>
+            <p id="massResult" class="result"></p>
+        </div>
+
+        <!-- Temperature Conversion -->
+        <div id="temperatureConversion" class="conversion-section">
+            <h3 class="conversion-header">Temperature Conversion</h3>
+            <select id="tempChoice">
+                <option value="0">Select Temperature Conversion</option>
+                <option value="1">Celsius to Fahrenheit</option>
+                <option value="2">Celsius to Kelvin</option>
+                <option value="3">Fahrenheit to Celsius</option>
+                <option value="4">Kelvin to Celsius</option>
+                <option value="5">Fahrenheit to Kelvin</option>
+                <option value="6">Kelvin to Fahrenheit</option>
+            </select>
+            <input type="number" id="tempValue" placeholder="Enter temperature" />
+            <button onclick="performTemperatureConversion()">Convert</button>
+            <p id="tempResult" class="result"></p>
+        </div>
+
+        <!-- Length Conversion -->
+        <div id="lengthConversion" class="conversion-section">
+            <h3 class="conversion-header">Length Conversion</h3>
+            <select id="lengthChoice">
+                <option value="0">Select Length Conversion</option>
+                <option value="1">Meters to Kilometers</option>
+                <option value="2">Centimeters to Meters</option>
+                <option value="3">Inches to Feet</option>
+                <option value="4">Miles to Kilometers</option>
+                <option value="5">Millimeters to Meters</option>
+            </select>
+            <input type="number" id="lengthValue" placeholder="Enter length" />
+            <button onclick="performLengthConversion()">Convert</button>
+            <p id="lengthResult" class="result"></p>
+        </div>
+
+        <!-- Time Conversion -->
+        <div id="timeConversion" class="conversion-section">
+            <h3 class="conversion-header">Time Conversion</h3>
+            <select id="timeChoice">
+                <option value="0">Select Time Conversion</option>
+                <option value="1">Seconds to Minutes</option>
+                <option value="2">Minutes to Hours</option>
+                <option value="3">Hours to Days</option>
+                <option value="4">Days to Weeks</option>
+                <option value="5">Weeks to Months</option>
+                <option value="6">Months to Years</option>
+            </select>
+            <input type="number" id="timeValue" placeholder="Enter time" />
+            <button onclick="performTimeConversion()">Convert</button>
+            <p id="timeResult" class="result"></p>
+        </div>
+
+        <!-- Speed Conversion -->
+        <div id="speedConversion" class="conversion-section">
+            <h3 class="conversion-header">Speed Conversion</h3>
+            <select id="speedChoice">
+                <option value="0">Select Speed Conversion</option>
+                <option value="1">Meters per Second to Kilometers per Hour</option>
+                <option value="2">Kilometers per Hour to Miles per Hour</option>
+                <option value="3">Miles per Hour to Kilometers per Hour</option>
+            </select>
+            <input type="number" id="speedValue" placeholder="Enter speed" />
+            <button onclick="performSpeedConversion()">Convert</button>
+            <p id="speedResult" class="result"></p>
+        </div>
+
+        <!-- Volume Conversion -->
+        <div id="volumeConversion" class="conversion-section">
+            <h3 class="conversion-header">Volume Conversion</h3>
+            <select id="volumeChoice">
+                <option value="0">Select Volume Conversion</option>
+                <option value="1">Liters to Milliliters</option>
+                <option value="2">Cubic Meters to Liters</option>
+                <option value="3">Gallons to Liters</option>
+                <option value="4">Cubic Inches to Liters</option>
+                <option value="5">Cubic Feet to Liters</option>
+            </select>
+            <input type="number" id="volumeValue" placeholder="Enter volume" />
+            <button onclick="performVolumeConversion()">Convert</button>
+            <p id="volumeResult" class="result"></p>
+        </div>
+
+        <!-- Currency Conversion -->
+        <div id="currencyConversion" class="conversion-section">
+            <h3 class="conversion-header">Currency Conversion</h3>
+            <select id="currencyChoice">
+                <option value="0">Select Currency Conversion</option>
+                <option value="1">USD to EUR</option>
+                <option value="2">USD to GBP</option>
+                <option value="3">USD to INR</option>
+                <option value="4">USD to JPY</option>
+                <option value="5">USD to AUD</option>
+            </select>
+            <input type="number" id="currencyValue" placeholder="Enter USD amount" />
+            <button onclick="performCurrencyConversion()">Convert</button>
+            <p id="currencyResult" class="result"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to display the appropriate conversion section
+        function showConversionMenu() {
+            const conversionType = document.getElementById('conversionType').value;
+            document.querySelectorAll('.conversion-section').forEach(section => section.style.display = 'none');
+            if (conversionType == '1') {
+                document.getElementById('massConversion').style.display = 'block';
+            } else if (conversionType == '2') {
+                document.getElementById('temperatureConversion').style.display = 'block';
+            } else if (conversionType == '3') {
+                document.getElementById('lengthConversion').style.display = 'block';
+            } else if (conversionType == '4') {
+                document.getElementById('timeConversion').style.display = 'block';
+            } else if (conversionType == '5') {
+                document.getElementById('speedConversion').style.display = 'block';
+            } else if (conversionType == '6') {
+                document.getElementById('volumeConversion').style.display = 'block';
+            } else if (conversionType == '7') {
+                document.getElementById('currencyConversion').style.display = 'block';
+            }
+        }
+
+        // Mass Conversion
+        function performMassConversion() {
+            const value = parseFloat(document.getElementById('massValue').value);
+            const choice = document.getElementById('massChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (choice == '1') {
+                    result = value * 2.20462 + " Pounds";
+                } else if (choice == '2') {
+                    result = value * 0.035274 + " Ounces";
+                } else if (choice == '3') {
+                    result = value / 1000 + " Grams";
+                } else if (choice == '4') {
+                    result = value / 2.20462 + " Kilograms";
+                } else if (choice == '5') {
+                    result = value / 35.274 + " Grams";
+                } else if (choice == '6') {
+                    result = value * 1000 + " Kilograms";
+                }
+            }
+            document.getElementById('massResult').textContent = result;
+        }
+
+        // Temperature Conversion
+        function performTemperatureConversion() {
+            const value = parseFloat(document.getElementById('tempValue').value);
+            const choice = document.getElementById('tempChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (choice == '1') {
+                    result = (value * 9 / 5) + 32 + " °F";
+                } else if (choice == '2') {
+                    result = value + 273.15 + " K";
+                } else if (choice == '3') {
+                    result = (value - 32) * 5 / 9 + " °C";
+                } else if (choice == '4') {
+                    result = value - 273.15 + " °C";
+                } else if (choice == '5') {
+                    result = (value - 32) * 5 / 9 + 273.15 + " K";
+                } else if (choice == '6') {
+                    result = (value - 273.15) * 9 / 5 + 32 + " °F";
+                }
+            }
+            document.getElementById('tempResult').textContent = result;
+        }
+
+        // Length Conversion
+        function performLengthConversion() {
+            const value = parseFloat(document.getElementById('lengthValue').value);
+            const choice = document.getElementById('lengthChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (choice == '1') {
+                    result = value / 1000 + " Kilometers";
+                } else if (choice == '2') {
+                    result = value / 100 + " Meters";
+                } else if (choice == '3') {
+                    result = value / 12 + " Feet";
+                } else if (choice == '4') {
+                    result = value * 1.60934 + " Kilometers";
+                } else if (choice == '5') {
+                    result = value / 1000 + " Meters";
+                }
+            }
+            document.getElementById('lengthResult').textContent = result;
+        }
+
+        // Time Conversion
+        function performTimeConversion() {
+            const value = parseFloat(document.getElementById('timeValue').value);
+            const choice = document.getElementById('timeChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (choice == '1') {
+                    result = value / 60 + " Minutes";
+                } else if (choice == '2') {
+                    result = value / 60 + " Hours";
+                } else if (choice == '3') {
+                    result = value / 24 + " Days";
+                } else if (choice == '4') {
+                    result = value / 7 + " Weeks";
+                } else if (choice == '5') {
+                    result = value / 30.44 + " Months";
+                } else if (choice == '6') {
+                    result = value / 365 + " Years";
+                }
+            }
+            document.getElementById('timeResult').textContent = result;
+        }
+
+        // Speed Conversion
+        function performSpeedConversion() {
+            const value = parseFloat(document.getElementById('speedValue').value);
+            const choice = document.getElementById('speedChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (choice == '1') {
+                    result = value * 3.6 + " km/h";
+                } else if (choice == '2') {
+                    result = value * 1.60934 + " mph";
+                } else if (choice == '3') {
+                    result = value / 1.60934 + " km/h";
+                }
+            }
+            document.getElementById('speedResult').textContent = result;
+        }
+
+        // Volume Conversion
+        function performVolumeConversion() {
+            const value = parseFloat(document.getElementById('volumeValue').value);
+            const choice = document.getElementById('volumeChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid number.";
+            } else {
+                if (choice == '1') {
+                    result = value * 1000 + " Milliliters";
+                } else if (choice == '2') {
+                    result = value * 1000 + " Liters";
+                } else if (choice == '3') {
+                    result = value * 3.78541 + " Liters";
+                } else if (choice == '4') {
+                    result = value * 0.0163871 + " Liters";
+                } else if (choice == '5') {
+                    result = value * 28.3168 + " Liters";
+                }
+            }
+            document.getElementById('volumeResult').textContent = result;
+        }
+
+        // Currency Conversion
+        function performCurrencyConversion() {
+            const value = parseFloat(document.getElementById('currencyValue').value);
+            const choice = document.getElementById('currencyChoice').value;
+            let result = '';
+            if (isNaN(value)) {
+                result = "Please enter a valid amount.";
+            } else {
+                if (choice == '1') {
+                    result = value * 0.91 + " EUR"; // Example conversion rate
+                } else if (choice == '2') {
+                    result = value * 0.82 + " GBP"; // Example conversion rate
+                } else if (choice == '3') {
+                    result = value * 83.24 + " INR"; // Example conversion rate
+                } else if (choice == '4') {
+                    result = value * 145.56 + " JPY"; // Example conversion rate
+                } else if (choice == '5') {
+                    result = value * 1.47 + " AUD"; // Example conversion rate
+                }
+            }
+            document.getElementById('currencyResult').textContent = result;
+        }
+    </script>
+</body>
+</html>
