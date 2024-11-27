@@ -1,0 +1,438 @@
+import java.util.Scanner;
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("\t !!!! Welcome !!!!");
+            System.out.println("\t1. Mass Conversion\n\t2. Temperature Conversion\n\t3. Length Conversion\n\t4. Time Conversion\n\t5. Gallons to Liters\n\t6. Currency Conversion\n\t0. Exit\nEnter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1: {
+                    massConversion();
+                    break;
+                }
+                case 2: {
+                    temperatureConversion();
+                    break;
+                }
+                case 3: {
+                    lengthConversion();
+                    break;
+                }
+                case 4: {
+                    timeConversion();
+                    break;
+                }
+                case 5: {
+                    gallonsToLiters();
+                    break;
+                }
+                case 6: {
+                    currencyConversion();
+                    break;
+                }
+                case 0: {
+                    break;
+                }
+            }
+
+        } while (choice != 0);
+    }
+
+   Scanner sc = new Scanner(System.in);
+
+	public static void massConversion() {
+	     Scanner scanner = new Scanner(System.in);
+		int choice;
+		do {
+			System.out.println("\n\tMass Conversion Menu\n" + "\t1. Convert Kilograms to Other Units\n"
+					+ "\t2. Convert Grams to Other Units\n" + "\t3. Convert Milligrams to Other Units\n"
+					+ "\t4. Convert Pounds to Other Units\n" + "\t5. Convert Ounces to Other Units\n" + "\t0. Exit\n"
+					+ "Enter your choice: ");
+			choice = scanner.nextInt();
+
+			System.out.print("Enter the value to convert: ");
+			double value = scanner.nextDouble();
+
+			switch (choice) {
+			case 1: {
+				// Convert Kilograms
+				System.out.println("Kilograms to Grams: " + (value * 1000) + " g");
+				System.out.println("Kilograms to Milligrams: " + (value * 1000000) + " mg");
+				System.out.println("Kilograms to Pounds: " + (value * 2.20462) + " lbs");
+				System.out.println("Kilograms to Ounces: " + (value * 35.274) + " oz");
+				break;
+			}
+			case 2: {
+				// Convert Grams
+				System.out.println("Grams to Kilograms: " + (value / 1000) + " kg");
+				System.out.println("Grams to Milligrams: " + (value * 1000) + " mg");
+				System.out.println("Grams to Pounds: " + (value * 0.00220462) + " lbs");
+				System.out.println("Grams to Ounces: " + (value * 0.035274) + " oz");
+				break;
+			}
+			case 3: {
+				// Convert Milligrams
+				System.out.println("Milligrams to Kilograms: " + (value / 1000000) + " kg");
+				System.out.println("Milligrams to Grams: " + (value / 1000) + " g");
+				System.out.println("Milligrams to Pounds: " + (value * 2.20462e-6) + " lbs");
+				System.out.println("Milligrams to Ounces: " + (value * 3.5274e-5) + " oz");
+				break;
+			}
+			case 4: {
+				// Convert Pounds
+				System.out.println("Pounds to Kilograms: " + (value * 0.453592) + " kg");
+				System.out.println("Pounds to Grams: " + (value * 453.592) + " g");
+				System.out.println("Pounds to Milligrams: " + (value * 453592) + " mg");
+				System.out.println("Pounds to Ounces: " + (value * 16) + " oz");
+				break;
+			}
+			case 5: {
+				// Convert Ounces
+				System.out.println("Ounces to Kilograms: " + (value * 0.0283495) + " kg");
+				System.out.println("Ounces to Grams: " + (value * 28.3495) + " g");
+				System.out.println("Ounces to Milligrams: " + (value * 28349.5) + " mg");
+				System.out.println("Ounces to Pounds: " + (value * 0.0625) + " lbs");
+				break;
+			}
+			case 0: {
+				System.out.println("Thank You !!!!!");
+				break;
+			}
+			default: {
+				System.out.println("Invalid choice! Please select a valid option.");
+				break;
+			}
+			}
+		} while (choice != 0);
+	}
+
+	public static void temperatureConversion() {
+	     Scanner scanner = new Scanner(System.in);
+		int choice;
+		do {
+			// Display menu options
+			System.out.println("\nTemperature Conversion Menu\n" + "\t1. Celsius to Fahrenheit\n"
+					+ "\t2. Celsius to Kelvin\n" + "\t3. Fahrenheit to Celsius\n" + "\t4. Fahrenheit to Kelvin\n"
+					+ "\t5. Kelvin to Celsius\n" + "\t6. Kelvin to Fahrenheit\n" + "\t0. Exit\n" + "Enter your choice: ");
+
+			choice = scanner.nextInt();
+
+			System.out.print("Enter the temperature to convert: ");
+			double temperature = scanner.nextDouble();
+
+			switch (choice) {
+			case 1: {
+				// Convert Celsius to Fahrenheit
+				double fahrenheit = (temperature * 9 / 5) + 32;
+				System.out.println(temperature + "°C is " + fahrenheit + "°F");
+				break;
+			}
+			case 2: {
+				// Convert Celsius to Kelvin
+				double kelvin = temperature + 273.15;
+				System.out.println(temperature + "°C is " + kelvin + "K");
+				break;
+			}
+			case 3: {
+				// Convert Fahrenheit to Celsius
+				double celsius = (temperature - 32) * 5 / 9;
+				System.out.println(temperature + "°F is " + celsius + "°C");
+				break;
+			}
+			case 4: {
+				// Convert Fahrenheit to Kelvin
+				double kelvin = (temperature - 32) * 5 / 9 + 273.15;
+				System.out.println(temperature + "°F is " + kelvin + "K");
+				break;
+			}
+			case 5: {
+				// Convert Kelvin to Celsius
+				double celsius = temperature - 273.15;
+				System.out.println(temperature + "K is " + celsius + "°C");
+				break;
+			}
+			case 6: {
+				// Convert Kelvin to Fahrenheit
+				double fahrenheit = (temperature - 273.15) * 9 / 5 + 32;
+				System.out.println(temperature + "K is " + fahrenheit + "°F");
+				break;
+			}
+			case 0: {
+				System.out.println("Thank You !!!!!");
+				break;
+			}
+			default:
+				System.out.println("Invalid choice! Please select a valid option.");
+				break;
+			}
+		} while (choice != 0);
+
+	}
+
+public static void lengthConversion() {
+     Scanner scanner = new Scanner(System.in);
+		int choice;
+		do {
+			// Display the menu options
+			System.out.println("\n\tLength Conversion Menu\n" + "\t1. Meters to Other Units\n"
+					+ "\t2. Kilometers to Other Units\n" + "\t3. Centimeters to Other Units\n"
+					+ "\t4. Millimeters to Other Units\n" + "\t5. Inches to Other Units\n" + "\t6. Feet to Other Units\n"
+					+ "\t0. Exit\n" + "Enter your choice: ");
+
+			choice = scanner.nextInt();
+
+			System.out.print("Enter the value to convert: ");
+			double value = scanner.nextDouble(); // Get the length value to convert
+
+			switch (choice) {
+			case 1: {
+				// Meters to Other Units
+				System.out.println(value + " meters is:");
+				System.out.println(value * 1000 + " millimeters");
+				System.out.println(value * 100 + " centimeters");
+				System.out.println(value / 1000 + " kilometers");
+				System.out.println(value * 39.3701 + " inches");
+				System.out.println(value * 3.28084 + " feet");
+				break;
+			}
+			case 2: {
+				// Kilometers to Other Units
+				System.out.println(value + " kilometers is:");
+				System.out.println(value * 1000000 + " millimeters");
+				System.out.println(value * 100000 + " centimeters");
+				System.out.println(value * 1000 + " meters");
+				System.out.println(value * 39370.1 + " inches");
+				System.out.println(value * 3280.84 + " feet");
+				break;
+			}
+			case 3: {
+				// Centimeters to Other Units
+				System.out.println(value + " centimeters is:");
+				System.out.println(value * 10 + " millimeters");
+				System.out.println(value / 100 + " meters");
+				System.out.println(value / 100000 + " kilometers");
+				System.out.println(value / 2.54 + " inches");
+				System.out.println(value / 30.48 + " feet");
+				break;
+			}
+			case 4: {
+				// Millimeters to Other Units
+				System.out.println(value + " millimeters is:");
+				System.out.println(value / 10 + " centimeters");
+				System.out.println(value / 1000 + " meters");
+				System.out.println(value / 1000000 + " kilometers");
+				System.out.println(value / 25.4 + " inches");
+				System.out.println(value / 304.8 + " feet");
+				break;
+			}
+			case 5: {
+				// Inches to Other Units
+				System.out.println(value + " inches is:");
+				System.out.println(value * 25.4 + " millimeters");
+				System.out.println(value * 2.54 + " centimeters");
+				System.out.println(value / 39.3701 + " meters");
+				System.out.println(value / 39370.1 + " kilometers");
+				System.out.println(value / 12 + " feet");
+				break;
+			}
+			case 6: {
+				// Feet to Other Units
+				System.out.println(value + " feet is:");
+				System.out.println(value * 304.8 + " millimeters");
+				System.out.println(value * 30.48 + " centimeters");
+				System.out.println(value * 0.3048 + " meters");
+				System.out.println(value * 0.0003048 + " kilometers");
+				System.out.println(value * 12 + " inches");
+				break;
+			}
+			case 0: {
+				System.out.println("Thank You !!!!!");
+				break;
+			}
+			default:
+				System.out.println("Invalid choice! Please select a valid option.");
+				break;
+			}
+		} while (choice != 0);
+
+	}
+
+	public static void timeConversion() {
+	     Scanner scanner = new Scanner(System.in);
+		int choice;
+		do {
+			// Display the menu options
+			System.out.println("\n\tTime Conversion Menu\n" + "\t1. Hours to Other Units\n" + "\t2. Minutes to Other Units\n"
+					+ "\t3. Seconds to Other Units\n" + "\t4. Days to Other Units\n" + "\t0. Exit\n" + "Enter your choice: ");
+
+			choice = scanner.nextInt(); 
+
+			
+
+			System.out.print("Enter the value to convert: ");
+			double value = scanner.nextDouble(); // Get the time value to convert
+
+			switch (choice) {
+			case 1: {
+				// Convert Hours to Other Units
+				System.out.println(value + " Hours is:");
+				System.out.println(value * 60 + " Minutes");
+				System.out.println(value * 3600 + " Seconds");
+				System.out.println(value / 24 + " Days");
+				break;
+			}
+			case 2: {
+				// Convert Minutes to Other Units
+				System.out.println(value + " Minutes is:");
+				System.out.println(value / 60 + " Hours");
+				System.out.println(value * 60 + " Seconds");
+				System.out.println(value / 1440 + " Days");
+				break;
+			}
+			case 3: {
+				// Convert Seconds to Other Units
+				System.out.println(value + " Seconds is:");
+				System.out.println(value / 3600 + " Hours");
+				System.out.println(value / 60 + " Minutes");
+				System.out.println(value / 86400 + " Days");
+				break;
+			}
+			case 4: {
+				// Convert Days to Other Units
+				System.out.println(value + " Days is:");
+				System.out.println(value * 24 + " Hours");
+				System.out.println(value * 1440 + " Minutes");
+				System.out.println(value * 86400 + " Seconds");
+				break;
+			}
+			case 0: {
+				System.out.println("Thank You !!!!!");
+				break;
+			}
+			default:
+				System.out.println("Invalid choice! Please select a valid option.");
+				break;
+			}
+		} while (choice != 0);
+
+		
+	}
+	
+	
+	
+	
+	 public static void gallonsToLiters() {
+	    
+	        Scanner scanner = new Scanner(System.in);
+
+	        System.out.println("\tGallons to Liters Conversion");
+	        System.out.println("\t1. Gallons to Liters");
+	        System.out.println("\t2. Liters to Gallons");
+	        System.out.println("\t0. Exit");
+
+	        System.out.print("Enter your choice: ");
+	        int choice = scanner.nextInt(); // Get user choice for conversion type
+
+	        switch (choice) {
+	            case 1: {
+	                // Gallons to Liters conversion
+	                System.out.print("Enter the value in Gallons: ");
+	                double gallons = scanner.nextDouble();
+	                double liters = gallons * 3.78541; // 1 Gallon = 3.78541 Liters
+	                System.out.println(gallons + " Gallons = " + liters + " Liters");
+	                break;
+	            }
+	            case 2: {
+	                // Liters to Gallons conversion
+	                System.out.print("Enter the value in Liters: ");
+	                double liters = scanner.nextDouble();
+	                double gallons = liters / 3.78541; // 1 Liter = 1 / 3.78541 Gallons
+	                System.out.println(liters + " Liters = " + gallons + " Gallons");
+	                break;
+	            }
+	            case 0: {
+					System.out.println("Thank You !!!!!");
+					break;
+				}
+	            default:
+	                System.out.println("Invalid choice! Please select a valid option.");
+	                break;
+	        }
+
+	        
+	    }
+	 
+	public static void currencyConversion() {
+	        Scanner scanner = new Scanner(System.in);
+
+	        // Conversion rates (example rates; these can be updated)
+	        double usdToEur = 0.92; // 1 USD = 0.92 EUR
+	        double usdToGbp = 0.81; // 1 USD = 0.81 GBP
+	        double usdToInr = 83.1; // 1 USD = 83.1 INR
+	        double usdToAud = 1.49; // 1 USD = 1.49 AUD
+
+	        int choice;
+	        do {
+	            // Display the currency conversion menu
+	            System.out.println("\n\tCurrency Conversion Menu");
+	            System.out.println("\t1. Convert USD to EUR");
+	            System.out.println("\t2. Convert USD to GBP");
+	            System.out.println("\t3. Convert USD to INR");
+	            System.out.println("\t4. Convert USD to AUD");
+	            System.out.println("\t0. Exit");
+	            System.out.print("Enter your choice: ");
+	            choice = scanner.nextInt(); // Get the user's choice
+
+	            // If exit choice (0), break out of the loop
+	            if (choice == 0) {
+	                System.out.println("Thank you! Exiting the program.");
+	                break;
+	            }
+
+	            System.out.print("Enter the amount in USD to convert: ");
+	            double usdAmount = scanner.nextDouble(); // Get the amount in USD
+
+	            switch (choice) {
+	                case 1: {
+	                    // Convert USD to EUR
+	                    double eurAmount = usdAmount * usdToEur;
+	                    System.out.println(usdAmount + " USD = " + eurAmount + " EUR");
+	                    break;
+	                }
+	                case 2: {
+	                    // Convert USD to GBP
+	                    double gbpAmount = usdAmount * usdToGbp;
+	                    System.out.println(usdAmount + " USD = " + gbpAmount + " GBP");
+	                    break;
+	                }
+	                case 3: {
+	                    // Convert USD to INR
+	                    double inrAmount = usdAmount * usdToInr;
+	                    System.out.println(usdAmount + " USD = " + inrAmount + " INR");
+	                    break;
+	                }
+	                case 4: {
+	                    // Convert USD to AUD
+	                    double audAmount = usdAmount * usdToAud;
+	                    System.out.println(usdAmount + " USD = " + audAmount + " AUD");
+	                    break;
+	                }
+	                case 0: {
+						System.out.println("Thank You !!!!!");
+						break;
+					}
+	                default:
+	                    System.out.println("Invalid choice! Please select a valid option.");
+	                    break;
+	            }
+	        } while (choice != 0);
+
+	       
+	    }
+	 
+}
