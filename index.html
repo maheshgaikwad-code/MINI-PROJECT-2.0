@@ -194,11 +194,11 @@
             <h3 class="conversion-header">Currency Conversion</h3>
             <select id="currencyChoice">
                 <option value="0">Select Currency Conversion</option>
-                <option value="1">USD to EUR</option>
-                <option value="2">USD to GBP</option>
-                <option value="3">USD to INR</option>
-                <option value="4">USD to JPY</option>
-                <option value="5">USD to AUD</option>
+                <option value="1">INR to EUR</option>
+                <option value="2">INR to GBP</option>
+                <option value="3">INR to USD</option>
+                <option value="4">INR to JPY</option>
+                <option value="5">INR to AUD</option>
             </select>
             <input type="number" id="currencyValue" placeholder="Enter USD amount" />
             <button onclick="performCurrencyConversion()">Convert</button>
@@ -320,7 +320,7 @@
                 } else if (choice == '5') {
                     result = value / 30.44 + " Months";
                 } else if (choice == '6') {
-                    result = value / 365 + " Years";
+                    result = value / 12 + " Years";
                 }
             }
             document.getElementById('timeResult').textContent = result;
@@ -377,15 +377,15 @@
                 result = "Please enter a valid amount.";
             } else {
                 if (choice == '1') {
-                    result = value * 0.91 + " EUR"; // Example conversion rate
+                    result = value * 0.011 + " EUR"; // Example conversion rate
                 } else if (choice == '2') {
-                    result = value * 0.82 + " GBP"; // Example conversion rate
+                    result = value * 0.0093+ " GBP"; // Example conversion rate
                 } else if (choice == '3') {
-                    result = value * 83.24 + " INR"; // Example conversion rate
+                    result = value * 0.012+ " USD"; // Example conversion rate
                 } else if (choice == '4') {
-                    result = value * 145.56 + " JPY"; // Example conversion rate
+                    result = value * 1.79 + " JPY"; // Example conversion rate
                 } else if (choice == '5') {
-                    result = value * 1.47 + " AUD"; // Example conversion rate
+                    result = value * 0.018 + " AUD"; // Example conversion rate
                 }
             }
             document.getElementById('currencyResult').textContent = result;
